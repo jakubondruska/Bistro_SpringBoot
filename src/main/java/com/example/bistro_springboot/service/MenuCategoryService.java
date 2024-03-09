@@ -35,7 +35,7 @@ public class MenuCategoryService {
 
         try {
             MenuCategory newMenuCategory = new MenuCategory();
-            newMenuCategory.setName(name);
+            newMenuCategory.setCategoryName(name);
             menuCategoryRepository.save(newMenuCategory);
             return newMenuCategory;
         } catch (Exception e){
@@ -48,7 +48,7 @@ public class MenuCategoryService {
         MenuCategory existingCategory = menuCategoryRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Category not found"));
 
-        existingCategory.setName(editedCategory.getName());
+        existingCategory.setCategoryName(editedCategory.getCategoryName());
         return menuCategoryRepository.save(existingCategory);
     }
 

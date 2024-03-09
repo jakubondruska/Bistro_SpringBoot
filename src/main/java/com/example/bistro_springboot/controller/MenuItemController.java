@@ -4,6 +4,7 @@ import com.example.bistro_springboot.model.MenuItem;
 import com.example.bistro_springboot.service.MenuItemService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,9 +20,11 @@ public class MenuItemController {
     }
 
     @GetMapping("all/{id}/getAllItems")
-    public ResponseEntity<List<MenuItem>> getAllItems(@PathVariable Long id) {
-        List<MenuItem> viewAllItems = menuItemService.getItemByCategoryId(id);
-        return new ResponseEntity<>(viewAllItems,HttpStatus.OK);
+    public String getAllItems(@PathVariable Long categoryId, Model model) {
+        List<MenuItem> viewAllItems = menuItemService.getItemByCategoryId(categoryId);
+        model.addAttribute("viewAllItems", viewAllItems);
+        model.addAttribute("categoryId",categoryId);
+        return "";
     }
 
     @PostMapping("/add/{id}/createItem")

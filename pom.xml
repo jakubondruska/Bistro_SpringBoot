@@ -11,7 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>Bistro_SpringBoot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Bistro_SpringBoot</name>
+	<categoryName>Bistro_SpringBoot</categoryName>
 	<description>Bistro_SpringBoot</description>
 	<properties>
 		<java.version>17</java.version>

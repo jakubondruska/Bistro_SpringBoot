@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/menu")
 public class MenuCategoryController {
 
     private final MenuCategoryService categoryService;
@@ -35,7 +34,7 @@ public class MenuCategoryController {
 
     @PostMapping("/add")
     public String createCategory(@ModelAttribute("category") MenuCategory category) {
-        categoryService.createCategory(category.getName());
+        categoryService.createCategory(category.getCategoryName());
         return "redirect:/menu/all";
     }
 

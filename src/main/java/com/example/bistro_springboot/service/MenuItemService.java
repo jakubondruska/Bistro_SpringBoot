@@ -30,8 +30,9 @@ public class MenuItemService {
     public Optional<MenuItem> getItemById(Long id) {
         return menuItemRepository.findById(id);
     }
-    public List<MenuItem> getItemByCategoryId(Long id) {
-        return menuItemRepository.findMenuItemByMenuCategoryId(id);
+
+    public List<MenuItem> getItemByCategoryId(Long categoryId) {
+        return menuItemRepository.findMenuItemByMenuCategoryCategoryId(categoryId);
 
     }
     public void createItem(MenuItem item, Long categoryId) {

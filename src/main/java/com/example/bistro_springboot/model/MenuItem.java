@@ -22,19 +22,21 @@ public class MenuItem {
     private double weight;
 
     @ManyToOne
-    @JoinColumn(name = "category")
+    @JoinColumn(name = "menu_category")
     private MenuCategory menuCategory;
 
     public MenuItem() {
     }
 
-    public MenuItem(Long id, String name, String description, double price, String allergens, double weight) {
+    public MenuItem(Long id, String name, String description,
+                    double price, String allergens, double weight, MenuCategory menuCategory) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.allergens = allergens;
         this.weight = weight;
+        this.menuCategory = menuCategory;
     }
 
     public MenuItem(Long id, String name, String description, double price) {

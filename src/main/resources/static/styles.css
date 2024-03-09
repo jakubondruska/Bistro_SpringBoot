@@ -11,12 +11,12 @@ FONT SIZE SYSTEM (px)
 
 :root {
     /* Primary Color */
-    --primary-color: #1b6909;
+    --primary-color: rgba(4, 142, 124, 0.45);
 
-    --background-color : #050f0e;
+    --background-color : #4e323f;
 
     /* Background */
-    --white-color: #ffffff;
+    --white-color: rgb(5, 18, 135);
 
     /* Accent Gray */
     --heading-text: #000;
@@ -41,7 +41,7 @@ html{
 }
 body{
     font-family: 'Lato', sans-serif;
-    color: #333;
+    color: #2a0303;
     font-size: 1.8rem;
     line-height: 1.6;
 }
@@ -61,21 +61,23 @@ a {
 
 nav{
     height: 9rem;
+    background-color: #000000;
 }
 
 .navbar-brand{
     font-size: 2.4rem;
+    color: #048e7c74;
 }
 
-
+/* navbar text design */
 .nav-link:link , .nav-link:visited {
-    color: #fff;
+    color: #8be8e8;
     font-size: 1.8rem;
     font-weight: 500;
     display: inline-block;
 }
 
-
+/* navbar hover settings */
 .nav-link:hover , .nav-link:active{
     color: var(--primary-color);
 }
@@ -90,7 +92,7 @@ nav{
 
 .nav-link.cta:hover{
     background-color: #0e2420;
-    color: #fff;
+    color: #048e7c74;
 }
 
 
@@ -187,12 +189,12 @@ h3{
 
 span.navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='yellow' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-    color: white;
+    color: #048e7c74;
 }
 
 /* change hamburger button border color */
 button.navbar-toggler {
-    border-color: #fff;
+    border-color: #048e7c74;
 }
 
 /* change navbar background on collapse */
