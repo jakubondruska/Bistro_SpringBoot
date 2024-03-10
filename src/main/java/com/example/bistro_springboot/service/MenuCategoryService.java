@@ -31,13 +31,14 @@ public class MenuCategoryService {
         return menuCategoryRepository.findById(id);
     }
 
-    public MenuCategory createCategory(String name) {
+    public MenuCategory createCategory(String categoryName) {
 
         try {
             MenuCategory newMenuCategory = new MenuCategory();
-            newMenuCategory.setCategoryName(name);
+            newMenuCategory.setCategoryName(categoryName);
             menuCategoryRepository.save(newMenuCategory);
             return newMenuCategory;
+
         } catch (Exception e){
             throw  new RuntimeException("Creating new category failed");
         }

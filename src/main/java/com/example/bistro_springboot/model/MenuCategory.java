@@ -18,11 +18,13 @@ public class MenuCategory implements Serializable {
     @OneToMany(mappedBy = "menuCategory", cascade = CascadeType.ALL)
     private List<MenuItem> itemToCategory = new ArrayList<>();
 
-
-    public MenuCategory(Long categoryId, String categoryName) {
+    public MenuCategory(Long categoryId, String categoryName, List<MenuItem> itemToCategory) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
+        this.itemToCategory = itemToCategory;
     }
+
+
 
     public MenuCategory() {
     }
@@ -41,6 +43,14 @@ public class MenuCategory implements Serializable {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public List<MenuItem> getItemToCategory() {
+        return itemToCategory;
+    }
+
+    public void setItemToCategory(List<MenuItem> itemToCategory) {
+        this.itemToCategory = itemToCategory;
     }
 
     @Override

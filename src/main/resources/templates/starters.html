@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8" />
+    <meta itemid="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Johny's Bistro</title>
+</head>
+<body>
+
+ <!-- nav bar -->
+
+<nav class="navbar navbar-expand-lg" style="position: sticky; top: 0; z-index: 1000;">
+    <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="#"
+           data-bs-toggle="tooltip"
+           data-bs-title="JohnyBistro"
+           data-bs-placement="bottom">Johny's Bistro
+        </a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item px-2">
+                    <a class="nav-link" aria-current="page" href="#home">Home</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#features">Daily Menu</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#features">Menu</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#how">How it works</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link cta" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+ <header class="bg-header">
+
+
+     <!-- text with motorcycle guy -->
+
+     <section class="hero-section py-5" >
+         <div class="container py-3">
+             <div class="row g-5">
+                 <div class="d-flex align-items-center justify-content-between">
+                     <div class="col-12 col-lg-6">
+                         <h1 class="text-white fw-bold">
+                             Johny's Bistro Express: Gourmet On-the-Go
+                         </h1>
+                         <p class="text-white pt-4">
+                             Discover a wide range of delectable dishes from various
+                             cuisines. From appetizers and main courses to desserts and
+                             beverages, we have something to satisfy every craving.
+                         </p>
+                         <button class="btn mt-5">Order now</button>
+                     </div>
+                     <div class="col-12 col-lg-6">
+                         <div class="d-flex justify-content-end">
+                             <img src="/static/assets/hero.png" class="hero-img" alt="" />
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+ </header>
+
+ <main>
+     <section class="featured py-5" id="features">
+         <div class="container">
+             <h2 class="text-dark fw-bold text-center pt-5 pb-5">
+                 Menu
+             </h2>
+         </div>
+
+         <div class="container">
+             <div class="row g-5">
+                 <div class="col-12 col-lg-3" th:each="item : ${viewAllItems}"> <!-- loop thought items in category -->
+                     <div class="card shadow-sm border-0 rounded">
+                             <img src="/static/assets/tomato-hummus-crostini-25282-1.jpeg" class="card-img-top" alt="" />
+                             <div class="card-body">
+                                 <h3 class="card-title">Crunchy baguette with tomato and hummus</h3>
+                                 <h5 class="card-text">Allergens</h5>
+                                     sesame, cereals(gluten)
+                             </div>
+                         </div>
+                 </div>
+
+                 <div class="col-12 col-lg-3">
+                     <a href="/link-na-vasu-stranku" >
+                         <div class="card shadow-sm border-0 rounded">
+                             <img src="/static/assets/soups.jpg" class="card-img-top" alt="" />
+                             <div class="card-body">
+                                 <h3 class="card-title">Soup</h3>
+                                 <p class="card-text">
+                                     ahoj hot or cold? Soup is a great option for your metabolism.
+                                 </p>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+
+                 <div class="col-12 col-lg-3">
+                     <a href="/link-na-vasu-stranku" >
+                         <div class="card shadow-sm border-0 rounded">
+                             <img src="/static/assets/pizza.jpg" class="card-img-top" alt="" />
+                             <div class="card-body">
+                                 <h3 class="card-title">Pizza</h3>
+                                 <p class="card-text">
+                                     Italian pizza from the best pizza chefs
+                                 </p>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+
+                 <div class="col-12 col-lg-3">
+                     <a href="/link-na-vasu-stranku" >
+                         <div class="card shadow-sm border-0 rounded">
+                             <img src="/static/assets/sushi.jpg" class="card-img-top" alt="" />
+                             <div class="card-body">
+                                 <h3 class="card-title">Sushi</h3>
+                                 <p class="card-text">
+                                     Excellent sushi from the best fish supplier
+                                 </p>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+
+                 <div class="col-12 col-lg-3">
+                     <a href="/link-na-vasu-stranku" >
+                         <div class="card shadow-sm border-0 rounded">
+                             <img src="/static/assets/burger.jpg" class="card-img-top" alt="" />
+                             <div class="card-body">
+                                 <h3 class="card-title">Burger</h3>
+                                 <p class="card-text">
+                                     Real OG burgers with Angus smash beef
+                                 </p>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+
+                 <div class="col-12 col-lg-3">
+                     <a href="/link-na-vasu-stranku" >
+                         <div class="card shadow-sm border-0 rounded">
+                             <img src="/static/assets/lavacake.jpg" class="card-img-top" alt="" />
+                             <div class="card-body">
+                                 <h3 class="card-title">Deserts</h3>
+                                 <p class="card-text">
+                                     Sweet lovely deserts after great meal
+                                 </p>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+
+                 <div class="col-12 col-lg-3">
+                     <a href="/link-na-vasu-stranku" >
+                         <div class="card shadow-sm border-0 rounded">
+                             <img src="/static/assets/lavacake.jpg" class="card-img-top" alt="" />
+                             <div class="card-body">
+                                 <h3 class="card-title">Deserts</h3>
+                                 <p class="card-text">
+                                     Sweet lovely deserts after great meal
+                                 </p>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+
+                 <div class="col-12 col-lg-3">
+                     <a href="/link-na-vasu-stranku" >
+                         <div class="card shadow-sm border-0 rounded">
+                             <img src="/static/assets/drinks.jpg" class="card-img-top" alt="" />
+                             <div class="card-body">
+                                 <h3 class="card-title">Drinks</h3>
+                                 <p class="card-text">
+                                     Juicy alcoholic and non-alcoholic drinks made by our best barman
+                                 </p>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+
+             </div>
+         </div>
+     </section>
+
+ </main>
+
+
+
+
+
+
+
+
+<script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"
+></script>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script>
+    const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]'
+    );
+    const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+    );
+</script>
+</body>
+</html>
+</body>
+</html>

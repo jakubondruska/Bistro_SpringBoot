@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8" />
-  <meta categoryName="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta categoryName ="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -101,8 +101,9 @@
 
     <div class="container">
       <div class="row g-5">
+
         <div class="col-12 col-lg-3" th:each="category : ${categories}"> <!-- loop thought categories -->
-          <a th:href="@{'/all/' + ${category.categoryId} + '/viewAllItems'}" >
+          <a th:href="@{'/all'}">
           <div class="card shadow-sm border-0 rounded">
             <img src="/static/assets/starters.jpg" class="card-img-top" alt="" />
             <div class="card-body">

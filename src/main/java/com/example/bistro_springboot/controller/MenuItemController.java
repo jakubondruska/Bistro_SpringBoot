@@ -4,13 +4,13 @@ import com.example.bistro_springboot.model.MenuItem;
 import com.example.bistro_springboot.service.MenuItemService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping()
+@Controller
 public class MenuItemController {
 
     private final MenuItemService menuItemService;
@@ -19,12 +19,12 @@ public class MenuItemController {
         this.menuItemService = menuItemService;
     }
 
-    @GetMapping("all/{id}/getAllItems")
+    @GetMapping("all/{categoryId}/starters")
     public String getAllItems(@PathVariable Long categoryId, Model model) {
         List<MenuItem> viewAllItems = menuItemService.getItemByCategoryId(categoryId);
         model.addAttribute("viewAllItems", viewAllItems);
         model.addAttribute("categoryId",categoryId);
-        return "";
+        return "starters";
     }
 
     @PostMapping("/add/{id}/createItem")
