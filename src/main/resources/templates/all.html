@@ -6,6 +6,37 @@
     <title>Add Category</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .larger-image {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            z-index: 9999;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+        }
+
+        .larger-image.active, .overlay.active {
+            display: block;
+        }
+
+        .list-group-item:hover .larger-image {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -27,8 +58,8 @@
                     <textarea class="form-control" id="categoryDescription" name="categoryDescription" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="categoryPics">Category Picture:</label>
-                    <input type="file" class="form-control-file" id="categoryPics" name="categoryPics" accept="image/*" required>
+                    <label for="file">Category Picture:</label>
+                    <input type="file" class="form-control-file" id="file" name="file" accept="image/*" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Add Category</button>
             </form>
@@ -48,7 +79,16 @@
             <h2 class="text-dark">Existing Categories</h2>
             <ul class="list-group">
                 <li th:each="category : ${categories}" class="list-group-item d-flex justify-content-between align-items-center">
-                    <span th:text="${category.categoryName}"></span>
+                    <div class="d-flex align-items-center">
+                        <!-- Modified: Open the image in a larger view on hover -->
+                        <div class="larger-image">
+                            <img th:src="@{/image(categoryId=${category.categoryId})}" alt="Category Image" class="img-fluid">
+                        </div>
+                        <a th:href="@{/image(categoryId=${category.categoryId})}" target="_blank">
+                            <img th:src="@{/image(categoryId=${category.categoryId})}" alt="Category Image" class="img-thumbnail mr-3" width="250" height="250">
+                        </a>
+                        <span th:text="${category.categoryName}"></span>
+                    </div>
                     <div class="btn-group" role="group">
                         <a th:href="@{'/edit/' + ${category.categoryId}}" class="btn btn-warning btn-sm">Edit</a>
                         <a th:href="@{'/delete/' + ${category.categoryId}}" class="btn btn-danger btn-sm">Delete</a>
@@ -58,11 +98,6 @@
         </div>
     </div>
 </div>
-
-<!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
