@@ -3,32 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Johny Bistro - Menu Categories</title>
+    <title>Add Category</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container mt-5">
-    <h1 class="mb-4">Menu Categories</h1>
+    <h1 class="text-dark fw-bold text-center pt-5 pb-5">
+        Add New Category
+    </h1>
 
     <!-- Add Category Form -->
-    <div class="row mb-4">
+    <div class="row">
         <div class="col-md-6">
-            <form th:action="@{/addCategory}" method="post">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="New Category Name" name="categoryName" required>
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">Add Category</button>
-                    </div>
+            <form th:action="@{/addCategory}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="categoryName">Category Name:</label>
+                    <input type="text" class="form-control" id="categoryName" name="categoryName" required>
                 </div>
+                <div class="form-group">
+                    <label for="categoryDescription">Category Description:</label>
+                    <textarea class="form-control" id="categoryDescription" name="categoryDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="categoryPics">Category Picture:</label>
+                    <input type="file" class="form-control-file" id="categoryPics" name="categoryPics" accept="image/*" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Category</button>
             </form>
         </div>
     </div>
 
-    <!-- List of Categories -->
-    <div class="row">
+    <!-- Back to All Categories Link -->
+    <div class="row mt-3">
         <div class="col-md-6">
+            <a th:href="@{/all}" class="btn btn-secondary">Back to All Categories</a>
+        </div>
+    </div>
+
+    <!-- Show Existing Categories -->
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2 class="text-dark">Existing Categories</h2>
             <ul class="list-group">
                 <li th:each="category : ${categories}" class="list-group-item d-flex justify-content-between align-items-center">
                     <span th:text="${category.categoryName}"></span>

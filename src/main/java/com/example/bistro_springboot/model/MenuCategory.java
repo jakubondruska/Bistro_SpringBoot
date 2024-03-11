@@ -1,6 +1,12 @@
 package com.example.bistro_springboot.model;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.aspectj.bridge.IMessage;
+import org.hibernate.annotations.NotFound;
+import org.springframework.lang.NonNull;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,16 +21,21 @@ public class MenuCategory implements Serializable {
 
     private String categoryName;
 
+    private String categoryDescription;
+
+
+
+
     @OneToMany(mappedBy = "menuCategory", cascade = CascadeType.ALL)
     private List<MenuItem> itemToCategory = new ArrayList<>();
 
-    public MenuCategory(Long categoryId, String categoryName, List<MenuItem> itemToCategory) {
+    public MenuCategory(Long categoryId, String categoryName, String categoryDescription,
+                         List<MenuItem> itemToCategory) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
+        this.categoryDescription = categoryDescription;
         this.itemToCategory = itemToCategory;
     }
-
-
 
     public MenuCategory() {
     }
@@ -55,9 +66,21 @@ public class MenuCategory implements Serializable {
 
     @Override
     public String toString() {
-        return "MenuCategoryComponent{" +
+        return "MenuCategory{" +
                 "categoryId=" + categoryId +
                 ", categoryName='" + categoryName + '\'' +
+                ", categoryDescription='" + categoryDescription +
+                ", itemToCategory=" + itemToCategory +
                 '}';
     }
+
+    public String getCategoryDescription() {
+        return categoryDescription;
+    }
+
+    public void setCategoryDescription(String categoryDescription) {
+        this.categoryDescription = categoryDescription;
+    }
+
+
 }

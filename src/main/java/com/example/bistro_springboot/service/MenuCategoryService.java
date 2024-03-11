@@ -6,7 +6,9 @@ import com.example.bistro_springboot.repo.MenuItemRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,25 +33,29 @@ public class MenuCategoryService {
         return menuCategoryRepository.findById(id);
     }
 
-    public MenuCategory createCategory(String categoryName) {
+    public MenuCategory createCategory(MenuCategory category, MultipartFile file) {
 
         try {
             MenuCategory newMenuCategory = new MenuCategory();
-            newMenuCategory.setCategoryName(categoryName);
+            newMenuCategory.setCategoryName(category.getCategoryName());
+            newMenuCategory.setCategoryDescription(category.getCategoryDescription());
             menuCategoryRepository.save(newMenuCategory);
             return newMenuCategory;
 
         } catch (Exception e){
-            throw  new RuntimeException("Creating new category failed");
+            throw  new RuntimeException("Creating new category failed", e);
+
         }
     }
 
-    public MenuCategory editCategory(Long id, MenuCategory editedCategory) {
+    public MenuCategory editCategory(Long categoryId, MenuCategory editedCategory) {
 
-        MenuCategory existingCategory = menuCategoryRepository.findById(id)
+        MenuCategory existingCategory = menuCategoryRepository.findById(categoryId)
                 .orElseThrow(() -> new EntityNotFoundException("Category not found"));
 
         existingCategory.setCategoryName(editedCategory.getCategoryName());
+        existingCategory.setCategoryDescription(editedCategory.getCategoryDescription());
+
         return menuCategoryRepository.save(existingCategory);
     }
 
