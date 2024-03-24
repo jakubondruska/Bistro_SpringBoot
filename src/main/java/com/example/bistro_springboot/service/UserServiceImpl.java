@@ -18,6 +18,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(UserDto userDto) {
+
         // Set neutral role to "USER", if Admin role is needed to create, then must be created manually
         String role = (userDto.getRole() != null && !userDto.getRole().isEmpty()) ? userDto.getRole() : "USER";
 

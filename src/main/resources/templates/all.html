@@ -78,7 +78,7 @@
         <div class="col-md-12">
             <h2 class="text-dark">Existing Categories</h2>
             <ul class="list-group">
-                <li th:each="category : ${categories}" class="list-group-item d-flex justify-content-between align-items-center">
+                <li th:each="category : ${categoriesAdmin}" class="list-group-item d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <!-- Modified: Open the image in a larger view on hover -->
                         <div class="larger-image">
@@ -89,6 +89,7 @@
                         </a>
                         <span th:text="${category.categoryName}"></span>
                     </div>
+
                     <div class="btn-group" role="group">
                         <a th:href="@{'/edit/' + ${category.categoryId}}" class="btn btn-warning btn-sm">Edit</a>
                         <a th:href="@{'/delete/' + ${category.categoryId}}" class="btn btn-danger btn-sm">Delete</a>

@@ -92,6 +92,44 @@
 <!-- Menu Categories selection settings -->
 
 <main>
+
+  <section class="Soups">
+    <div class="container">
+      <h2 class="text-dark fw-bold text-center pt-5 pb-5">
+        Soups
+      </h2>
+    </div>
+
+    <!-- Show Existing Categories -->
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="row">
+
+            <div th:each="category : ${categoriesUser}" class="col-12 col-md-6 col-lg-3">
+              <div class="card shadow-sm border-0 rounded">
+                <a th:href="@{'/johny_bistro_main/' + ${category.categoryId} + '/items'}" target="_blank">
+                  <img th:src="@{/image(categoryId=${category.categoryId})}" alt="Category Image" class="card-img-top" />
+                </a>
+
+                <div class="card-body">
+                  <h3 class="card-title" th:text="${category.categoryName}"></h3>
+                  <p class="card-text" th:text="${category.categoryDescription}"></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
   <section class="featured py-5" id="features">
     <div class="container">
       <h2 class="text-dark fw-bold text-center pt-5 pb-5">
@@ -99,121 +137,27 @@
       </h2>
     </div>
 
+    <!-- Show Existing Categories -->
     <div class="container">
-      <div class="row g-5">
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="row">
 
-        <div class="col-12 col-lg-3" th:each="category : ${categories}"> <!-- loop thought categories -->
-          <a th:href="@{'/all'}">
-          <div class="card shadow-sm border-0 rounded">
-            <img src="/static/assets/starters.jpg" class="card-img-top" alt="" />
-            <div class="card-body">
-              <h3 class="card-title">Starters</h3>
-              <p class="card-text">
-                Take something small to your beautiful mouth before our fine dishes
-              </p>
-            </div>
-          </div>
-          </a>
-        </div>
+            <div th:each="category : ${categoriesUser}" class="col-12 col-md-6 col-lg-3">
+              <div class="card shadow-sm border-0 rounded">
+                <a th:href="@{'/johny_bistro_main/' + ${category.categoryId} + '/items'}" target="_blank">
+                  <img th:src="@{/image(categoryId=${category.categoryId})}" alt="Category Image" class="card-img-top" />
+                </a>
 
-        <div class="col-12 col-lg-3">
-          <a href="/link-na-vasu-stranku" >
-            <div class="card shadow-sm border-0 rounded">
-              <img src="/static/assets/soups.jpg" class="card-img-top" alt="" />
-              <div class="card-body">
-                <h3 class="card-title">Soup</h3>
-                <p class="card-text">
-                  Something hot or cold? Soup is a great option for your metabolism.
-                </p>
+                <div class="card-body">
+                  <h3 class="card-title" th:text="${category.categoryName}"></h3>
+                  <p class="card-text" th:text="${category.categoryDescription}"></p>
+                </div>
               </div>
             </div>
-          </a>
-        </div>
 
-        <div class="col-12 col-lg-3">
-          <a href="/link-na-vasu-stranku" >
-          <div class="card shadow-sm border-0 rounded">
-            <img src="/static/assets/pizza.jpg" class="card-img-top" alt="" />
-            <div class="card-body">
-              <h3 class="card-title">Pizza</h3>
-              <p class="card-text">
-                Italian pizza from the best pizza chefs
-              </p>
-            </div>
           </div>
-          </a>
         </div>
-
-        <div class="col-12 col-lg-3">
-          <a href="/link-na-vasu-stranku" >
-          <div class="card shadow-sm border-0 rounded">
-            <img src="/static/assets/sushi.jpg" class="card-img-top" alt="" />
-            <div class="card-body">
-              <h3 class="card-title">Sushi</h3>
-              <p class="card-text">
-                Excellent sushi from the best fish supplier
-              </p>
-            </div>
-          </div>
-          </a>
-        </div>
-
-        <div class="col-12 col-lg-3">
-          <a href="/link-na-vasu-stranku" >
-          <div class="card shadow-sm border-0 rounded">
-            <img src="/static/assets/burger.jpg" class="card-img-top" alt="" />
-            <div class="card-body">
-              <h3 class="card-title">Burger</h3>
-              <p class="card-text">
-                Real OG burgers with Angus smash beef
-              </p>
-            </div>
-          </div>
-          </a>
-        </div>
-
-        <div class="col-12 col-lg-3">
-          <a href="/link-na-vasu-stranku" >
-          <div class="card shadow-sm border-0 rounded">
-            <img src="/static/assets/lavacake.jpg" class="card-img-top" alt="" />
-            <div class="card-body">
-              <h3 class="card-title">Deserts</h3>
-              <p class="card-text">
-                Sweet lovely deserts after great meal
-              </p>
-            </div>
-          </div>
-          </a>
-        </div>
-
-        <div class="col-12 col-lg-3">
-          <a href="/link-na-vasu-stranku" >
-          <div class="card shadow-sm border-0 rounded">
-            <img src="/static/assets/lavacake.jpg" class="card-img-top" alt="" />
-            <div class="card-body">
-              <h3 class="card-title">Deserts</h3>
-              <p class="card-text">
-                Sweet lovely deserts after great meal
-              </p>
-            </div>
-          </div>
-          </a>
-        </div>
-
-        <div class="col-12 col-lg-3">
-          <a href="/link-na-vasu-stranku" >
-          <div class="card shadow-sm border-0 rounded">
-            <img src="/static/assets/drinks.jpg" class="card-img-top" alt="" />
-            <div class="card-body">
-              <h3 class="card-title">Drinks</h3>
-              <p class="card-text">
-                Juicy alcoholic and non-alcoholic drinks made by our best barman
-              </p>
-            </div>
-          </div>
-          </a>
-        </div>
-
       </div>
     </div>
   </section>

@@ -31,7 +31,7 @@ public class UserController {
     @PostMapping("/registration")
     public String saveUser(@ModelAttribute("user") UserDto userDto, Model model) {
         userService.save(userDto);
-        model.addAttribute("message", "Registered Successfuly!");
+        model.addAttribute("message", "Registered Successfully!");
         return "register";
     }
 
@@ -40,18 +40,5 @@ public class UserController {
         return "login";
     }
 
-    @GetMapping("user-page")
-    public String userPage (Model model, Principal principal) {
-        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
-        model.addAttribute("user", userDetails);
-        return "user";
-    }
-
-    @GetMapping("admin-page")
-    public String adminPage (Model model, Principal principal) {
-        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
-        model.addAttribute("user", userDetails);
-        return "admin";
-    }
 
 }

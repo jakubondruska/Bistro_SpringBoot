@@ -2,10 +2,13 @@ package com.example.bistro_springboot.controller;
 
 import com.example.bistro_springboot.model.MenuCategory;
 import com.example.bistro_springboot.service.MenuCategoryService;
+import com.example.bistro_springboot.service.UserService;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -15,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +27,14 @@ import java.util.Optional;
 @Controller
 public class MenuCategoryController {
 
+    @Autowired
     private final MenuCategoryService categoryService;
+
+    @Autowired
+    UserDetailsService userDetailsService;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     public MenuCategoryController(MenuCategoryService categoryService) {
@@ -31,12 +42,22 @@ public class MenuCategoryController {
     }
 
     @GetMapping("/all")
-    public String getAllCategories(Model model) {
+    public String adminPage(Model model, Principal principal) {
+        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
+        model.addAttribute("user", userDetails);
         List<MenuCategory> viewAllCategories = categoryService.getAllMenuCategory();
-        model.addAttribute("categories", viewAllCategories);
+        model.addAttribute("categoriesAdmin", viewAllCategories);
         return "all";
     }
 
+    @GetMapping("/johny_bistro_main")
+    public String userPage(Model model, Principal principal) {
+        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
+        model.addAttribute("user", userDetails);
+        List<MenuCategory> viewAllCategories = categoryService.getAllMenuCategory();
+        model.addAttribute("categoriesUser", viewAllCategories);
+        return "johny_bistro_main";
+    }
 
     @PostMapping("/addCategory")
     public String createCategory(@ModelAttribute @Validated MenuCategory category,
