@@ -18,9 +18,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(UserDto userDto) {
-        User user = new User(userDto.getEmail(), passwordEncoder.encode(userDto.getPassword()) , userDto.getRole(), userDto.getFullname());
+        // Set neutral role to "USER", if Admin role is needed to create, then must be created manually
+        String role = (userDto.getRole() != null && !userDto.getRole().isEmpty()) ? userDto.getRole() : "USER";
+
+        User user = new User(userDto.getEmail(), passwordEncoder.encode(userDto.getPassword()), role, userDto.getFullname());
         return userRepository.save(user);
     }
-
-
 }
+
+
+
