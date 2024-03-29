@@ -1,4 +1,4 @@
-package com.example.bistro_springboot.service;
+/*package com.example.bistro_springboot.service;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,4 +33,4 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 
     }
 
-}
+}*/

@@ -1,4 +1,4 @@
-package com.example.bistro_springboot.service;
+/*package com.example.bistro_springboot.service;
 
 import com.example.bistro_springboot.model.User;
 import com.example.bistro_springboot.repo.UserRepository;
@@ -26,3 +26,4 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
 }
+*/

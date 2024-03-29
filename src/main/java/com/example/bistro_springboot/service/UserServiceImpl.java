@@ -1,4 +1,4 @@
-package com.example.bistro_springboot.service;
+/*package com.example.bistro_springboot.service;
 
 import com.example.bistro_springboot.dto.UserDto;
 import com.example.bistro_springboot.model.User;
@@ -26,6 +26,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 }
-
+*/
 
 

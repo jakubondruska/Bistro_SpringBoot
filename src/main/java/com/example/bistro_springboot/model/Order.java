@@ -1,4 +1,4 @@
-package com.example.bistro_springboot.model;
+/*package com.example.bistro_springboot.model;
 
 import jakarta.persistence.*;
 
@@ -103,3 +103,4 @@ public class Order {
                 '}';
     }
 }
+*/

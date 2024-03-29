@@ -1,4 +1,4 @@
-package com.example.bistro_springboot.dto;
+/*package com.example.bistro_springboot.dto;
 
 public class UserDto {
 
@@ -49,3 +49,4 @@ public class UserDto {
 
 
 }
+*/

@@ -1,4 +1,4 @@
-package com.example.bistro_springboot.repo;
+/*package com.example.bistro_springboot.repo;
 
 import com.example.bistro_springboot.model.MenuItem;
 
@@ -9,4 +9,4 @@ import java.util.List;
 public interface MenuItemRepository extends JpaRepository<MenuItem, Long> {
 
     List<MenuItem> findMenuItemByMenuCategoryCategoryId(Long categoryId);
-}
+}*/

@@ -1,4 +1,4 @@
-package com.example.bistro_springboot.model;
+/*package com.example.bistro_springboot.model;
 
 public class Menu {
 
@@ -14,3 +14,4 @@ public class Menu {
 
 }
 
+*/

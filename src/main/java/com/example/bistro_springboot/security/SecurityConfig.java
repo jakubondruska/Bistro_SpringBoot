@@ -1,4 +1,4 @@
-package com.example.bistro_springboot.security;
+/*package com.example.bistro_springboot.security;
 
 import com.example.bistro_springboot.service.CustomSuccessHandler;
 import com.example.bistro_springboot.service.CustomUserDetailsService;
@@ -60,3 +60,4 @@ public class SecurityConfig {
 
 }
 
+*/

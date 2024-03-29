@@ -1,4 +1,4 @@
-package com.example.bistro_springboot.service;
+/*package com.example.bistro_springboot.service;
 
 import com.example.bistro_springboot.model.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -60,4 +60,4 @@ public class CustomUserDetail implements UserDetails {
         return true;
     }
 
-}
+}*/

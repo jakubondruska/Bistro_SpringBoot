@@ -1,7 +1,8 @@
-package com.example.bistro_springboot.model;
+/*package com.example.bistro_springboot.model;
 
 import jakarta.persistence.*;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Entity
@@ -20,6 +21,16 @@ public class MenuItem {
     private String allergens;
 
     private double weight;
+    @Lob
+    @Column(name = "contents")
+    private byte[] content;
+
+    @Column(name = "profilePictures")
+    private String profilePicture;
+
+    @Column(name = "sizes")
+    private Long size;
+
 
     @ManyToOne
     @JoinColumn(name = "menu_category")
@@ -28,23 +39,18 @@ public class MenuItem {
     public MenuItem() {
     }
 
-    public MenuItem(Long id, String name, String description,
-                    double price, String allergens, double weight, MenuCategory menuCategory) {
+    public MenuItem(Long id, String name, String description, double price, String allergens,
+                    double weight, byte[] content, String profilePicture, Long size, MenuCategory menuCategory) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.allergens = allergens;
         this.weight = weight;
+        this.content = content;
+        this.profilePicture = profilePicture;
+        this.size = size;
         this.menuCategory = menuCategory;
-    }
-
-    public MenuItem(Long id, String name, String description, double price) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-
     }
 
     public Long getId() {
@@ -112,8 +118,35 @@ public class MenuItem {
                 ", price=" + price +
                 ", allergens='" + allergens + '\'' +
                 ", weight=" + weight +
+                ", content=" + Arrays.toString(content) +
+                ", profilePicture='" + profilePicture + '\'' +
+                ", size=" + size +
+                ", menuCategory=" + menuCategory +
                 '}';
     }
 
+    public byte[] getContent() {
+        return content;
+    }
 
+    public void setContent(byte[] content) {
+        this.content = content;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public Long getSize() {
+        return size;
+    }
+
+    public void setSize(Long size) {
+        this.size = size;
+    }
 }
+*/

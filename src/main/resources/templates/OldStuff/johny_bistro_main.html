@@ -1,3 +1,4 @@
+<
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -16,7 +17,7 @@
 <body>
 
 <!-- navigation bar -->
-
+<!--
 <nav class="navbar navbar-expand-lg" style="position: sticky; top: 0; z-index: 1000;">
   <div class="container">
     <a class="navbar-brand text-white fw-bold" href="#"
@@ -60,8 +61,8 @@
 <header class="bg-header">
 
 
-  <!-- text with motorcycle guy -->
-
+   text with motorcycle guy -->
+<!--
   <section class="hero-section py-5" >
     <div class="container py-3">
       <div class="row g-5">
@@ -79,7 +80,7 @@
           </div>
           <div class="col-12 col-lg-6">
             <div class="d-flex justify-content-end">
-              <img src="/static/assets/hero.png" class="hero-img" alt="" />
+              <img src="/assets/hero.png" class="hero-img" alt="" />
             </div>
           </div>
         </div>
@@ -89,8 +90,8 @@
 </header>
 
 
-<!-- Menu Categories selection settings -->
-
+ Menu Categories selection settings -->
+<!--
 <main>
 
   <section class="Soups">
@@ -100,7 +101,8 @@
       </h2>
     </div>
 
-    <!-- Show Existing Categories -->
+    <!--Show Existing Categories -->
+<!--
     <div class="container">
       <div class="row mt-5">
         <div class="col-12">
@@ -108,9 +110,10 @@
 
             <div th:each="category : ${categoriesUser}" class="col-12 col-md-6 col-lg-3">
               <div class="card shadow-sm border-0 rounded">
-                <a th:href="@{'/johny_bistro_main/' + ${category.categoryId} + '/items'}" target="_blank">
+                <a th:href="@{'/johny_bistro_main/' + ${category.categoryId} + '/itemsUser'}">
                   <img th:src="@{/image(categoryId=${category.categoryId})}" alt="Category Image" class="card-img-top" />
                 </a>
+
 
                 <div class="card-body">
                   <h3 class="card-title" th:text="${category.categoryName}"></h3>
@@ -124,44 +127,6 @@
       </div>
     </div>
   </section>
-
-
-
-
-
-
-  <section class="featured py-5" id="features">
-    <div class="container">
-      <h2 class="text-dark fw-bold text-center pt-5 pb-5">
-        Menu Categories
-      </h2>
-    </div>
-
-    <!-- Show Existing Categories -->
-    <div class="container">
-      <div class="row mt-5">
-        <div class="col-12">
-          <div class="row">
-
-            <div th:each="category : ${categoriesUser}" class="col-12 col-md-6 col-lg-3">
-              <div class="card shadow-sm border-0 rounded">
-                <a th:href="@{'/johny_bistro_main/' + ${category.categoryId} + '/items'}" target="_blank">
-                  <img th:src="@{/image(categoryId=${category.categoryId})}" alt="Category Image" class="card-img-top" />
-                </a>
-
-                <div class="card-body">
-                  <h3 class="card-title" th:text="${category.categoryName}"></h3>
-                  <p class="card-text" th:text="${category.categoryDescription}"></p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
 
   <section class="how-it-works" id="how">
@@ -389,3 +354,4 @@
 </html>
 
 
+-->

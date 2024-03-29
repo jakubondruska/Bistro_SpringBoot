@@ -1,4 +1,4 @@
-package com.example.bistro_springboot.controller;
+/*package com.example.bistro_springboot.controller;
 
 import com.example.bistro_springboot.model.MenuCategory;
 import com.example.bistro_springboot.service.MenuCategoryService;
@@ -19,9 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.security.Principal;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -113,7 +111,7 @@ public class MenuCategoryController {
     }
 
     @GetMapping("/image")
-    public void showImage(@RequestParam("categoryId") Long categoryId, HttpServletResponse response) throws IOException {
+    public void showImage(@RequestParam("") Long categoryId, HttpServletResponse response) throws IOException {
         Optional<MenuCategory> categoryOptional = categoryService.getMenuCategoryById(categoryId);
 
         if (categoryOptional.isPresent()) {
@@ -135,3 +133,4 @@ public class MenuCategoryController {
     }
 
 }
+*/

@@ -1,14 +1,18 @@
-package com.example.bistro_springboot.controller;
+/*package com.example.bistro_springboot.controller;
 
 import com.example.bistro_springboot.model.MenuItem;
 import com.example.bistro_springboot.service.MenuItemService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
+import java.util.Optional;
+
 
 @Controller
 public class MenuItemController {
@@ -19,33 +23,71 @@ public class MenuItemController {
         this.menuItemService = menuItemService;
     }
 
-    @GetMapping("all/{categoryId}/starters")
-    public String getAllItems(@PathVariable Long categoryId, Model model) {
+
+    @GetMapping("all/{categoryId}/itemsAdmin")
+    public String getAllItemsAdmin(@PathVariable Long categoryId, Model model) {
         List<MenuItem> viewAllItems = menuItemService.getItemByCategoryId(categoryId);
-        model.addAttribute("viewAllItems", viewAllItems);
-        model.addAttribute("categoryId",categoryId);
-        return "starters";
+        model.addAttribute("itemsAdmin", viewAllItems);
+        model.addAttribute("categoryId", categoryId);
+        return "itemsAdmin";
     }
 
-    @PostMapping("/add/{id}/createItem")
-    public ResponseEntity<MenuItem> createItem(@RequestBody MenuItem item, @PathVariable Long id) {
-
-        menuItemService.createItem(item,id);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    @GetMapping("johny_bistro_main/{categoryId}/itemsUser")
+    public String getAllItemsUser(@PathVariable Long categoryId, Model model) {
+        List<MenuItem> viewAllItems = menuItemService.getItemByCategoryId(categoryId);
+        model.addAttribute("itemsUser", viewAllItems);
+        model.addAttribute("categoryId", categoryId);
+        return "itemsUser";
     }
 
-    @PutMapping("/edit/{categoryId}/editItem/{taskId}")
-    public ResponseEntity<MenuItem> editItem(@PathVariable Long taskId,
-                                             @PathVariable Long categoryId, @RequestBody MenuItem editedItem) {
-        menuItemService.editItem(taskId, editedItem);
 
-        String convertedCategoryId = categoryId.toString();
-        return new ResponseEntity<>(HttpStatus.OK);
+    @GetMapping("/all/{categoryId}/createItem")
+    public String getTaskToCreate(@PathVariable Long categoryId, Model model) {
+        List<MenuItem> viewItemToCreate = menuItemService.getItemByCategoryId(categoryId);
+
+
+        model.addAttribute("viewItemToCreate", viewItemToCreate);
+        model.addAttribute("categoryId", categoryId.toString());
+        model.addAttribute("item", new MenuItem());
+
+        return "createItem";
     }
 
-    @DeleteMapping("delete/{categoryId}/deleteItem/{taskId}")
-    public ResponseEntity<Void> deleteItem(@PathVariable Long taskId, @PathVariable Long categoryId ) {
-        menuItemService.deleteItem(taskId);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+    @PostMapping("/all/{categoryId}/createItem")
+    public String createItem(@PathVariable Long categoryId,
+                             @ModelAttribute MenuItem menuItem,
+                             @RequestParam("file") MultipartFile multipartFile) throws IOException {
+        menuItem.setProfilePicture(multipartFile.getOriginalFilename());
+        menuItem.setContent(multipartFile.getBytes());
+        menuItemService.createItem(menuItem, categoryId, multipartFile);
+        return "redirect:/all/" + categoryId + "/itemsAdmin";
     }
-}
+
+    @GetMapping("/images/{itemId}")
+    public void showItemImage(@RequestParam Long id, @PathVariable Long itemId, HttpServletResponse response) throws IOException {
+        Optional<MenuItem> menuItemOptional = menuItemService.getItemById(itemId);
+
+        if (menuItemOptional.isPresent()) {
+            MenuItem menuItem = menuItemOptional.get();
+
+            // Získanie typu obsahu na základe prípony súboru
+            String contentType = menuItemService.getContentTypes(menuItem.getProfilePicture());
+
+            // Nastavenie typu obsahu v odpovedi
+            response.setContentType(contentType);
+
+            try (OutputStream outputStream = response.getOutputStream()) {
+                outputStream.write(menuItem.getContent());
+            }
+        } else {
+            // Riešenie prípadu, keď položka menu s daným ID nie je nájdená
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        }
+    }
+
+
+
+
+
+}*/
